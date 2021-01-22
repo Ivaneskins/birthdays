@@ -1,0 +1,17 @@
+@import 'reset';
+@import 'fonts';
+
+
+.wrapper {
+    min-width: 320px;
+    // text-align: center;
+    border: 1px solid red;
+    margin: 0 auto;
+    .header__title{
+        font-size: 48px;
+        text-align: center;
+        padding: 10px 0;
+        font-weight: 700;
+        font-style: italic;
+    }
+}
