@@ -1,12 +1,24 @@
 @import 'reset';
 @import 'fonts';
 
+$mySize: 28px;
 
+body {
+    // 
+    // background-image: url('../img/tree.png');
+    // background-position: cover;
+    // background-size: auto;   
+    // opacity: 0.1;     
+    // background-color: rgba(0, 110, 255, 0.6);    
+}
+.transparent {
+    opacity: 0.5;
+}
 .wrapper {
     // min-width: 320px;
-    max-width: 600px;
+    max-width: 800px;
     // text-align: center;
-    border: 1px solid rgb(0, 4, 255);
+    // border: 1px solid rgb(0, 4, 255);
     margin: 0 auto;
     .header__title{
         font-size: 48px;
@@ -14,31 +26,40 @@
         padding: 10px 0;
         font-weight: 700;
         font-style: italic;
+        margin-bottom: 30px;
         color:rgb(0, 110, 255)
+        
     }
 }
 .birthday {
+    font-size: $mySize;
+    font-style: italic;
     display: flex;
     justify-content: space-between;
     &__person {
         align-self: center;
-        padding: 0 20px;
-        
+        padding: 10px 20px;  
+        box-shadow: 0px 10px 70px rgb(202, 153, 173);
+        height: 45px;
+        // width: 200px;      
     }
     .timer {
         display: flex;        
         .card__timer{        
             display: flex;
             flex-wrap: wrap;
-            width: 100px;
+            width: 140px;
             height: 70px;
             align-items: center;
             justify-content: center;
-            padding: 10px 0;  
+            padding: 10px 0; 
+            // box-shadow: -10px 10px 15px rgb(221, 216, 216);
+            box-shadow: 10px 10px 15px rgb(221, 216, 216);
+
             .wrap__string {
                 width: 100%;
             }        
-            border: 1px solid black;           
+            // border: 1px solid black;           
         }  
     }     
 }   
