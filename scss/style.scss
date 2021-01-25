@@ -3,9 +3,10 @@
 
 
 .wrapper {
-    min-width: 320px;
+    // min-width: 320px;
+    max-width: 600px;
     // text-align: center;
-    border: 1px solid red;
+    border: 1px solid rgb(0, 4, 255);
     margin: 0 auto;
     .header__title{
         font-size: 48px;
@@ -13,5 +14,33 @@
         padding: 10px 0;
         font-weight: 700;
         font-style: italic;
+        color:rgb(0, 110, 255)
     }
 }
+.birthday {
+    display: flex;
+    justify-content: space-between;
+    &__person {
+        align-self: center;
+        padding: 0 20px;
+        
+    }
+    .timer {
+        display: flex;        
+        .card__timer{        
+            display: flex;
+            flex-wrap: wrap;
+            width: 100px;
+            height: 70px;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;  
+            .wrap__string {
+                width: 100%;
+            }        
+            border: 1px solid black;           
+        }  
+    }     
+}   
+
+
