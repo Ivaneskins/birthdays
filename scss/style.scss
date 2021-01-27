@@ -3,17 +3,6 @@
 
 $mySize: 28px;
 
-body {
-    // 
-    // background-image: url('../img/tree.png');
-    // background-position: cover;
-    // background-size: auto;   
-    // opacity: 0.1;     
-    // background-color: rgba(0, 110, 255, 0.6);    
-}
-.transparent {
-    opacity: 0.5;
-}
 .wrapper {
     // min-width: 320px;
     max-width: 800px;
@@ -27,8 +16,7 @@ body {
         font-weight: 700;
         font-style: italic;
         margin-bottom: 30px;
-        color:rgb(0, 110, 255)
-        
+        color:rgb(0, 110, 255)        
     }
 }
 .birthday {
@@ -40,8 +28,7 @@ body {
         align-self: center;
         padding: 10px 20px;  
         box-shadow: 0px 10px 70px rgb(202, 153, 173);
-        height: 45px;
-        // width: 200px;      
+        height: 45px;              
     }
     .timer {
         display: flex;        
@@ -58,8 +45,7 @@ body {
 
             .wrap__string {
                 width: 100%;
-            }        
-            // border: 1px solid black;           
+            }                          
         }  
     }     
 }   
