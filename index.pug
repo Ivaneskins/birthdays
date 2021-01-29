@@ -9,7 +9,11 @@ html(lang="en")
         div.wrapper
             h1.header__title Birthdays
         sector.main
-            .wrapper 
+            .wrapper
+                form.birthdaySendData
+                    input(type='text' placeholder='введите ваше имя')
+                    input(type='date' name='birthday' value='2021-07-08')
+                    input(type='submit' name='submit' value='Send')
                 .birthday
                     .birthday__person
                         p Ivan Vas 

@@ -381,6 +381,9 @@ textarea {
     margin-bottom: 30px;
     color: #006eff; }
 
+form.birthdaySendData {
+  margin-bottom: 30px; }
+
 .birthday {
   font-size: 28px;
   font-style: italic;
