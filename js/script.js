@@ -12,80 +12,101 @@ window.addEventListener('DOMContentLoaded', () => {
         formBirthday = form.querySelector("input[type='date']"),
         formBtnSend = form.querySelector("input[type='submit']"),
         formText = form.querySelector("input[type='text']");
+        
+
+
+    function getTimeRemaining(birthday) {        
+        birthday = new Date(birthday);                    
+        let today = new Date();        
+        let remain = Date.parse(birthday) + (today.getFullYear() - birthday.getFullYear()) * unoYear  - Date.parse(today);
+        if (today.getMonth() > birthday.getMonth()) { 
+            remain += unoYear;                                          
+        }        
+        let days = Math.floor((remain / 1000 / 60 / 60 / 24)),
+            hours = Math.floor((remain / 1000 / 60 / 60) % 24),
+            minutes = Math.floor((remain / 1000 / 60) % 60),
+            seconds = Math.floor((remain / 1000) % 60);
+        return {
+
+            'days': days,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        };
+    } 
+    
     
     
     formBtnSend.addEventListener('click', evt => {
         evt.preventDefault();
         let items = document.querySelectorAll('.birthday');
-
+        // upDate('1987-10-20');
         if (items.length >= 3) {
             alert('Превышен лимит ввода дат');
         }
         else if (formText.value === '') {
             alert('введите корректное значение');
         }                                
-        else {
-            new AddEvent(`${formText.value}`, `${formBirthday.value}`).render();            
+        else {            
+            new AddBirthday(`${formText.value}`, `${formBirthday.value}`).render();            
             birthdays[formText.value] = formBirthday.value;                
             form.reset();                
-            }             
+            }
+        // upDate('1987-10-20');
+        
+
         });
     
     
 
-    class AddEvent {
+    class AddBirthday { //class for create a BirthDay with some metods
         constructor(name, birthday){
             this.name = name;
-            this.birthday = new Date(birthday);              
+            this.birthday = new Date(birthday);                         
             
-            let today = new Date();        
-            let remain = Date.parse(this.birthday) + (today.getFullYear() - this.birthday.getFullYear()) * unoYear  - Date.parse(today);
-            if (today.getMonth() > this.birthday.getMonth()) { 
-                remain += unoYear;                                          
-            }                
-            this.days = Math.floor((remain / 1000 / 60 / 60 / 24));
-            this.hours = Math.floor((remain / 1000 / 60 / 60) % 24);
-            this.minutes = Math.floor((remain / 1000 / 60) % 60);
-            this.seconds = Math.floor((remain / 1000) % 60);            
+           
         }
-
-        render() {
+        render() { //metod for create a Birthday at HTML
+            let t = getTimeRemaining(this.birthday);
             const parent = document.querySelector('.wrapper.main');
             const newBirthday = document.createElement('div');
-            newBirthday.classList.add('birthday');            
+            newBirthday.classList.add('birthday');                        
             newBirthday.innerHTML = `
                 <div class="birthday__person">
                     <p>${this.name}</p>
                 </div>
                 <div class="timer">
                     <div class="card__timer"> 
-                        <div class="card__timer_days">${this.days}</div>
+                        <div class="card__timer_days">${t.days}</div>
                         <div class="wrap__string"></div>
                         <p>days</p>
                     </div>
                     <div class="card__timer"> 
-                        <div class="card__timer_hours">${this.hours}</div>
+                        <div class="card__timer_hours">${t.hours}</div>
                         <div class="wrap__string"></div>
                         <p>hours</p>
                     </div>
                     <div class="card__timer">
-                        <div class="card__timer_minutes">${this.minutes}</div>
+                        <div class="card__timer_minutes">${t.minutes}</div>
                         <div class="wrap__string"></div>
                         <p>minutes</p>
                     </div>
                     <div class="card__timer">
-                        <div class="card__timer_seconds">${this.seconds}</div>
+                        <div class="card__timer_seconds">${t.seconds}</div>
                         <div class="wrap__string"></div>
                         <p>seconds</p>
                     </div>
                 </div>
             `;
-            parent.insertAdjacentElement("beforeend", newBirthday);            
+            parent.insertAdjacentElement("beforeend", newBirthday);
+                        
         } 
     }
-    new AddEvent('Ivan Vas', '1987-10-20').render();
+    new AddBirthday('Ivan Vas', '1987-10-20').render();
+    
+    
     // new AddEvent('Ivan Vas', '1987-10-20');
-
+    
 
 
 

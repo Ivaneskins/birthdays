@@ -16,8 +16,16 @@ $mySize: 28px;
         font-weight: 700;
         font-style: italic;
         margin-bottom: 30px;
-        color:rgb(0, 110, 255)        
+        &::before{
+            content: 'time until';
+            display: inline;
+            font-size: 28px;            
+            color:rgb(202, 153, 173);
+        }
+        color:rgb(0, 110, 255)
+              
     }
+    
 }
 form.birthdaySendData{
     margin-bottom: 30px;    
@@ -52,6 +60,9 @@ form.birthdaySendData{
             }                          
         }  
     }     
+}
+.hide {
+    display: none;
 }   
 
 

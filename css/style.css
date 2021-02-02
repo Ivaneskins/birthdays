@@ -380,6 +380,11 @@ textarea {
     font-style: italic;
     margin-bottom: 30px;
     color: #006eff; }
+    .wrapper .header__title::before {
+      content: 'time until';
+      display: inline;
+      font-size: 28px;
+      color: #ca99ad; }
 
 form.birthdaySendData {
   margin-bottom: 30px; }
@@ -407,5 +412,8 @@ form.birthdaySendData {
       box-shadow: 10px 10px 15px #ddd8d8; }
       .birthday .timer .card__timer .wrap__string {
         width: 100%; }
+
+.hide {
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */
