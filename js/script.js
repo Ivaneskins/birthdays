@@ -9,10 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
 
     let unoYear = Date.parse('2020-01-01') - Date.parse('2019-01-01'); // 31536000000 milSec per Year
-
-    // let my = new Date(birthdays['Ivan Vas']); // My birthday 
     
-
     let form = document.querySelector('form'),
         formBirthday = form.querySelector("input[type='date']"),
         formBtnSend = form.querySelector("input[type='submit']"),
@@ -21,32 +18,26 @@ window.addEventListener('DOMContentLoaded', () => {
     
         formBtnSend.addEventListener('click', evt => {
             evt.preventDefault();
-            if (Object.keys(birthdays).length >= 3) {
-                 alert('Превышен лимит ввода дат');               
-            } 
+            let items = document.querySelectorAll('.birthday');
+
+            // if (Object.keys(birthdays).length >= 3) {
+            //      alert('Превышен лимит ввода дат');               
+            // } 
+            if (items.length >= 3) {
+                alert('Превышен лимит ввода дат');
+            }
             else if (formText.value === '') {
                 alert('введите корректное значение');
-            }
-            // else if (birthdays.key === formText.value){
-            //     alert('Вы ввели same text');
-
-            // }          
+            }                                
             else {
                 new addEvent(`${formText.value}`, `${formBirthday.value}`).render();            
                 birthdays[formText.value] = formBirthday.value;
-                console.log(Object.keys(birthdays).length);
-                form.reset();
-                console.log(Object.keys(birthdays));              
-            }
-            
-            
-
-                   
-    });  
-
-    function updateClock() {
-
-    }
+                // console.log(Object.keys(birthdays).length);
+                form.reset();                
+                }             
+            });
+                          
+    
 
     class addEvent {
         constructor(name, birthday){
