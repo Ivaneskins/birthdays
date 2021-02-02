@@ -6,8 +6,6 @@ window.addEventListener('DOMContentLoaded', () => {
         'Ivan Vas':'1987-10-20'
     };
 
-    
-
     let unoYear = Date.parse('2020-01-01') - Date.parse('2019-01-01'); // 31536000000 milSec per Year
     
     let form = document.querySelector('form'),
@@ -16,30 +14,26 @@ window.addEventListener('DOMContentLoaded', () => {
         formText = form.querySelector("input[type='text']");
     
     
-        formBtnSend.addEventListener('click', evt => {
-            evt.preventDefault();
-            let items = document.querySelectorAll('.birthday');
+    formBtnSend.addEventListener('click', evt => {
+        evt.preventDefault();
+        let items = document.querySelectorAll('.birthday');
 
-            // if (Object.keys(birthdays).length >= 3) {
-            //      alert('Превышен лимит ввода дат');               
-            // } 
-            if (items.length >= 3) {
-                alert('Превышен лимит ввода дат');
-            }
-            else if (formText.value === '') {
-                alert('введите корректное значение');
-            }                                
-            else {
-                new addEvent(`${formText.value}`, `${formBirthday.value}`).render();            
-                birthdays[formText.value] = formBirthday.value;
-                // console.log(Object.keys(birthdays).length);
-                form.reset();                
-                }             
-            });
-                          
+        if (items.length >= 3) {
+            alert('Превышен лимит ввода дат');
+        }
+        else if (formText.value === '') {
+            alert('введите корректное значение');
+        }                                
+        else {
+            new AddEvent(`${formText.value}`, `${formBirthday.value}`).render();            
+            birthdays[formText.value] = formBirthday.value;                
+            form.reset();                
+            }             
+        });
+    
     
 
-    class addEvent {
+    class AddEvent {
         constructor(name, birthday){
             this.name = name;
             this.birthday = new Date(birthday);              
@@ -87,11 +81,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
             parent.insertAdjacentElement("beforeend", newBirthday);            
-        }  
-
+        } 
     }
-    // new addEvent('Ivan', '1987-10-20').render();    
-    // new addEvent('Svetlana', '1991-12-07').render();
+    new AddEvent('Ivan Vas', '1987-10-20').render();
+    // new AddEvent('Ivan Vas', '1987-10-20');
+
 
 
 
