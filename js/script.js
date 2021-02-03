@@ -80,7 +80,6 @@ window.addEventListener('DOMContentLoaded', () => {
             form.reset();                
             }
         setClock(birthdays.slice(-1));
-
         
 
         });
@@ -101,7 +100,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="timer">
                     <div class="card__timer"> 
-                        <div class="card__timer_days">${t.days}</div>
+                        <div class="card__timer_days"></div>
                         <div class="wrap__string"></div>
                         <p>days</p>
                     </div>
