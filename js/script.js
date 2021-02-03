@@ -2,9 +2,10 @@
 
 window.addEventListener('DOMContentLoaded', () => { 
     
-    let birthdays = {
-        'Ivan Vas':'1987-10-20'
-    };
+    // let birthdays = {
+    //     'Ivan Vas':'1987-10-20'
+    // };
+        let birthdays = []; 
 
     let unoYear = Date.parse('2020-01-01') - Date.parse('2019-01-01'); // 31536000000 milSec per Year
     
@@ -27,13 +28,28 @@ window.addEventListener('DOMContentLoaded', () => {
             minutes = Math.floor((remain / 1000 / 60) % 60),
             seconds = Math.floor((remain / 1000) % 60);
         return {
-
             'days': days,
             'hours': hours,
             'minutes': minutes,
             'seconds': seconds
         };
     } 
+    function setClock(dateOfBirthday) {
+        let birthday = document.querySelector('.birthday:last-child'),
+            days = birthday.querySelector('.card__timer_days'),
+            hours = birthday.querySelector('.card__timer_hours'),
+            minutes = birthday.querySelector('.card__timer_minutes'),
+            seconds = birthday.querySelector('.card__timer_seconds'),
+            timeInterval = setInterval(upDateClock, 1000);
+
+        function upDateClock() {
+           let t = getTimeRemaining(dateOfBirthday);
+            days.innerHTML = t.days;
+            hours.innerHTML = t.hours;
+            minutes.innerHTML = t.minutes;
+            seconds.innerHTML = t.seconds;
+        }
+    }
     
     
     
@@ -49,23 +65,22 @@ window.addEventListener('DOMContentLoaded', () => {
         }                                
         else {            
             new AddBirthday(`${formText.value}`, `${formBirthday.value}`).render();            
-            birthdays[formText.value] = formBirthday.value;                
+            birthdays.push(formBirthday.value);                
             form.reset();                
             }
+        console.log(birthdays.slice(-1));
         // upDate('1987-10-20');
+        setClock(birthdays.slice(-1));
+
         
 
         });
     
-    
-
     class AddBirthday { //class for create a BirthDay with some metods
         constructor(name, birthday){
             this.name = name;
-            this.birthday = new Date(birthday);                         
-            
-           
-        }
+            this.birthday = new Date(birthday);                            
+        }        
         render() { //metod for create a Birthday at HTML
             let t = getTimeRemaining(this.birthday);
             const parent = document.querySelector('.wrapper.main');
@@ -97,9 +112,8 @@ window.addEventListener('DOMContentLoaded', () => {
                         <p>seconds</p>
                     </div>
                 </div>
-            `;
-            parent.insertAdjacentElement("beforeend", newBirthday);
-                        
+            `;            
+            parent.insertAdjacentElement("beforeend", newBirthday);                                                          
         } 
     }
     new AddBirthday('Ivan Vas', '1987-10-20').render();
