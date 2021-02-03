@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
     function getTimeRemaining(birthday) {        
         birthday = new Date(birthday);                    
         let today = new Date();        
-        let remain = Date.parse(birthday) + (today.getFullYear() - birthday.getFullYear()) * unoYear  - Date.parse(today);
+        let remain = (Date.parse(birthday) + (today.getFullYear() - birthday.getFullYear()) * unoYear  - Date.parse(today)) //- Math.random() * 86400000;
         if (today.getMonth() > birthday.getMonth()) { 
             remain += unoYear;                                          
         }        
@@ -64,12 +64,21 @@ window.addEventListener('DOMContentLoaded', () => {
             alert('введите корректное значение');
         }                                
         else {            
-            new AddBirthday(`${formText.value}`, `${formBirthday.value}`).render();            
-            birthdays.push(formBirthday.value);                
+            new AddBirthday(`${formText.value}`, `${formBirthday.value}`).render();
+            let hours = Math.round(Math.random() * 24),
+                minutes = Math.round(Math.random() * 60),
+                seconds = Math.round(Math.random() * 60);
+            if (hours < 10) {
+                hours += 10;
+            } else if (minutes < 10) {
+                minutes += 10;
+            } else if (seconds < 10) {
+                seconds += 10;
+            }
+
+            birthdays.push(formBirthday.value + `T${hours}:${minutes}:${seconds}`);                
             form.reset();                
             }
-        console.log(birthdays.slice(-1));
-        // upDate('1987-10-20');
         setClock(birthdays.slice(-1));
 
         
@@ -97,17 +106,17 @@ window.addEventListener('DOMContentLoaded', () => {
                         <p>days</p>
                     </div>
                     <div class="card__timer"> 
-                        <div class="card__timer_hours">${t.hours}</div>
+                        <div class="card__timer_hours"></div>
                         <div class="wrap__string"></div>
                         <p>hours</p>
                     </div>
                     <div class="card__timer">
-                        <div class="card__timer_minutes">${t.minutes}</div>
+                        <div class="card__timer_minutes"></div>
                         <div class="wrap__string"></div>
                         <p>minutes</p>
                     </div>
                     <div class="card__timer">
-                        <div class="card__timer_seconds">${t.seconds}</div>
+                        <div class="card__timer_seconds"></div>
                         <div class="wrap__string"></div>
                         <p>seconds</p>
                     </div>
