@@ -386,14 +386,19 @@ textarea {
       font-size: 28px;
       color: #ca99ad; }
 
-form.birthdaySendData {
-  margin-bottom: 30px; }
+form p {
+  font-size: 20px;
+  padding-bottom: 20px;
+  color: #1b10b1;
+  font-weight: bold;
+  font-style: italic; }
 
 .birthday {
   font-size: 28px;
   font-style: italic;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin-top: 20px; }
   .birthday__person {
     align-self: center;
     padding: 10px 20px;

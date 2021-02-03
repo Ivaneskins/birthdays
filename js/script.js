@@ -116,7 +116,7 @@ window.addEventListener('DOMContentLoaded', () => {
             parent.insertAdjacentElement("beforeend", newBirthday);                                                          
         } 
     }
-    new AddBirthday('Ivan Vas', '1987-10-20').render();
+    // new AddBirthday('Ivan Vas', '1987-10-20').render();
     
     
     // new AddEvent('Ivan Vas', '1987-10-20');

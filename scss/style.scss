@@ -27,8 +27,17 @@ $mySize: 28px;
     }
     
 }
-form.birthdaySendData{
-    margin-bottom: 30px;    
+form {
+    .birthdaySendData{
+        // margin-bottom: 80px;    
+    }
+    p {
+        font-size: 20px;
+        padding-bottom: 20px;
+        color:rgb(27, 16, 177);
+        font-weight: bold;
+        font-style: italic;
+    }
 }
 
 .birthday {
@@ -36,6 +45,7 @@ form.birthdaySendData{
     font-style: italic;
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
     &__person {
         align-self: center;
         padding: 10px 20px;  
